@@ -1,0 +1,236 @@
+# Network nedir? 
+## en az iki pc nin birbirine bilgi paylasimi amaci ile baglanmasidir
+
+## en az iki ama üst sinir yoktur
+
+## bilgi paylasim maksadi olmasi sarttir
+
+## mesela telefon sarj etme pc de, network degildir
+
+
+## Network ler su sekilde hizmetler sunar:
+
+## Access to shared files/ folders
+
+### Access to printers/scanners
+
+## Email Apps
+
+## Database Apps
+
+## Web Apps
+
+## Voice over IP(yani internet üzerinden tel görüsmesi)
+
+## Multimedia conferencing (Zoom gibi)
+
+
+
+#### Network un sahip olmasi gereken özellikler
+
+1-  Performence (Bu response time ile ölcülür)
+# sordugumuz soru ile gelen cevap arasinda gecen süre
+## genelde milisaniye olarak gecer
+## ne kadar düsük ag performansi o kadar yüksek
+## Internet hizi ile dogru orantili ama ayni sey degil.
+## internetimizin hizi bizim internete cikis hizimizi belirler. Ama 
+## internette sörf hizimizi router lar belirler 
+
+2- Data sharing (zaten networkun amaci bilgi paylasimi)
+## veri paylasimi olmazsa, network den bahsedilemez
+
+3- Backup (server cökme durumunda veri kaybolmamasi icin backup alinir)  
+4- Reliability (No failures)
+5- Security (Keep data safe)
+6- Scalability (new systems can be added)
+## aga istedigimiz zaman yeni bir cihaz eklemek
+## genisletilebilirlik, ölceklenebilirlik
+7- Software and hardware compatibility
+## yazilim ve donanim uyumlulugu
+## herkes kendi yazilim ve donanimi ile aga ulasabilir
+## ayni donanim ve yazilimi kullanma zorunlulugu yoktur
+
+
+## Su an web 2.0 kullaniliyor. web 1.0 dan farki nedir?
+## eskiden sadece veriye erisebiliyorduk. simdi ise veriyi 
+## düzenleyip erisebiliyoruz, kendimiz veri olusturabiliyoruz
+## ve web üzerindeki uygulamalar ile etkilesime girebiliyoruz
+## yani daha interaktif
+##eski sistem tamamen statikdi
+
+
+## su an web 2.0 centralized dir. yani server lar büyük devletlerin 
+## kontrolü altindadir. ve ABD Cin ve Rusya Avrupa tarafindadir
+
+## Web 3.0 ile, artik kontrol bu devletlerin elinden cikacak ve 
+## merkezi olmayan bir hal alacaktir
+
+## block chain teknolojisi ile yapilabilecektir bu 
+
+## Bloch chein in en önemli özelligi interneti centralized yapidan kurtarmasidir
+
+## mesela twitter merkezi yapidadir
+## serverlar abd de. istedikleri zamamn erisim engellnebilir
+## block chain de ise bunu engellemek imkansiza yakindir
+
+
+## block chain de whatsapp gibi app lerde verilerimi elde etmeleri
+## neredeyse imkansiz hale gelecektir
+
+## bu sistemde de serverler olacak ama milyonlarca server olacaktir
+
+## mesela su an bizim email gecmislerimiz google in serverlarinda tutulur ve 
+## bunlarin nerede oldugu belirlidir. block chain de ise belirli degildir
+## cünkü bir email binlerce server da dagitik sekilde durur
+## bunun takibini yapmak cok zordur
+
+## evimizde kullandigimiz modem dedigimiz cihazin esas adi 
+## wifi router demektir
+
+## LAN: Local area network:
+
+## günümüzde lan icin bir sinirlama yoktur.
+## bir ülke bir kita bile lan olarak kurulabilir
+
+## mesela bir sehri tek bir lan yapmaktansa, bunu parca parca lan lara
+## ayirmak, yönetimi kolaylastiracaktir.
+
+## Eger bir agda cihazlar dogrudan internete ulasamiyor ise
+# bu aga lan denir. Tüm cihazlar biribirine baglidir ancak hepsi de 
+# internete wifi router vasitasi ile ulasir. yani ag icerisinde
+## router a kadar olan kisim lan olarak adlandirilir. router dan sonra ise 
+## internet basladigindan burasi lan a ait degildir.
+
+## ayrica internet te hicbir sey lan daki cihazlara direkt erisim saglayamaz.
+## tüm trafik router üzerindendir
+
+## router trafigi hangi cihaza yönlendirecegini kendisi belirler 
+## verinin hangi rotayi kullanacagina karar verir 
+
+## router rotalayici anlamina gelmektedir
+
+## mesela evdeki tablet, laptop, desktop, akilli telefon 
+## bunlar lan dir. router üzerinden internete cikis yapar 
+
+## mesela bir sirkete ait 3 departmanin kendilerine ait birer lan lari mevcuttur
+## birde bu 3 lan in birlesiminden olusan 3 gruplu lan mevcuttur 
+## bunlarin hicbiri kendi basina internete baglanamadigi icin 
+## bunlarin tamamina lan denilir
+
+# internete cikis yapilan noktada lan biter wan baslar
+
+## Internete cikacak tüm cihazlarin mutlaka bir IP adresi olamsi gerekir.
+## ve su an dünyada tüm cihazlara verecek kadar ip adresi yoktur.
+# bu nedenle de lan kullanimi yayginlasmistir
+
+
+
+### Network'un elemanlari:
+
+## Node:  aga baglanan herhangi bir cihazdir
+## pc yada herhangi bir cihaz olabilir 
+## kablo ile baglanan cihazdir 
+
+
+## Station: Bu da wireless olarak kablosuz ile aga baglanan 
+## herhangi bir cihazdir 
+
+
+## Host : bu da bir node dur ancak gelistirilmistir.
+## sadece aga baglanmakla yetmez, bir ip adresi alirlar
+## iki cesittir, bir kullanici (client) yada server olarak isimlendirilir
+
+## Workstation: cok güclü bir pc dir 
+## apple'in ürettigi 50.000 $ lik pc lerdir
+## cok fazla islemcisi vardir
+## Bunlar cok pahali oldugu icin üniversite yada sirketlerde bir tane 
+## bulunur birkac kisi kullanir daha sonra diger kisiler kullanir 
+
+## yüksek hesaplama gerektiren islemler icin kullanilir 
+
+## günümüzde bulut hizmeti oldugu icin kullanimi azalmistir
+
+## Ekran kartinin en büyük özelligi yüksek seviyede matematiksel
+## islemler yapabilmesidir. Ancak bir isletim sistemini ekran karti ile 
+# calistiramayiz. bir cpu ile her islem yapilabilir ama ekran karti
+## oyunlar icin ve yüksek islemler icin tasarlanmistir
+
+## ekran karti boyutlari hemen hemen laptop boyutundadir
+## bir laptop icerisine yerlestirilmesi cok zordur. bu nedenle ekran kartindaki
+## yüksek teknoloji islemcilere uygulanamaz
+
+## ikisinin kullanim amaci farklidir. cpu pc nin beynidir
+## ancak ekran karti oyun gibi amaclar icin kullanilir 
+
+## pc de hangi dili kullanirsak kullanalim bunlar temelde assembly diline 
+## cevrilir cünkü islemci sadece bu dilden anlar 
+
+## mesela biz python kodu yazdigimizda, bu python derleyicisi tarafindan
+### assembly diline cevrilir 
+
+## biz programlama dilerinde tüm matematiksel islemleri kullaniriz
+## ama islemci, sadece toplama ve bölme yapabilir 
+# cikarma ve carpma yapamaz
+
+## iste burada compiler buradaki carpma islemini sadece toplama 
+## ve bölme islemi ile yapmaya calisir 
+
+## komut setleri:  islemcinin desteklemis oldugu komutlarin bir kümesidir
+
+## bazi server türleri:
+
+web server 
+proxy server 
+mail server 
+print server 
+app server 
+dns server 
+file server 
+telephony server 
+
+## server ve client fiziksel ve logical olarak ikiye ayrilir
+
+## mesela ders esnasinda hoca dahil herkes client zoom server i ise 
+## server dir 
+
+## ancak logical olarak hocanin pc si server, ögrencilerin ise client dir 
+
+## network dünyasinda hersey logical ve fiziksel olarak ikiye ayrilir 
+### fiziksel, cihazlarin konumunu belirtirken, logical ise verinin islenis
+## bicimini belirler 
+
+
+## Segment: Bir agin belirli bir bölgesini tanimlayan kelime
+## bir ag birden cok segment den olusabilir 
+## hangi kisimlarin segment olacagini ise admin belirler 
+
+
+## Backbone: Özel bir fiziksel kablo türüdür
+# ayni zamanda fast link olarak da adlandirilir 
+# agin segmentleri arasinda hizli veri transferine uygun 
+bir kablodur 
+
+
+## Transmission media:  verinin iletildigi ortamlar
+
+## ikiye ayrilir:
+
+## guided media : kablolu 
+    1: Coaxial (en eski kablodur. Tv antenlerinde kullanilir)
+        -- ikiye ayrilir:
+            -- baseband: (ayni anda tek sinyal gönderir)
+            -- broadband: (ayni anda birden cok sinyal gönderir)
+    2: Fiber optik(diger kablolarda elektrik akimlari kullanilir burada isik demetleri)
+        dolayisi ile en hizli 
+    3: Twisted (günümüzde en cok kulanilan kablolu mediadir.
+    asil adi twisted pair ama ama ethernet kablosu olarak da bilinir)
+
+        -- Kendi icinde izolasyonlu ve izolasyonsuz olarak ikiye ayrilir
+## unguided media: kablosuz 
+
+
+
+## media aklimiza verinin depolandigi veya iletildigi bir ortamdir
+## mesela cd, dvd, flash bellek, 
+
+
