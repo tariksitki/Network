@@ -1,0 +1,223 @@
+-- osi model genel cerceveyi cizer. Bu tavsiyeler icerisinde detaylandirma da mevcuttur 
+
+-- layer 1 ve layer 2 deki standartlari belirleyen dökümantasyonun ismi ethernet
+-- yani 1. ve 2. katmanlar ile ilgilidir
+
+-- mac adres ethernet dökümantasyonunda yer alan bir adrestir
+
+-- dökümantasyonun resmi adi 802.3 dür
+
+-- IEEE (Institute of Electrical and Electronics Engineers) tarafindan gelistirildi
+
+-- cihazlari bir network e baglamak icin bir teknolojidir
+
+-- Verinin nasil ve hangi formatta iletilecegini aciklar bu format. eger bir cihaz üretnek istersek
+-- bu standartlara göre üretiriz. aksi takdirde herkesin kullandigi agda bizim kablomuz ve kartimiz 
+-- bir ise yaramaz
+
+-- Standardin adi ethernet dolayisi ile bu standarda göre üretilmis kablolara ethernet kablosu
+-- bu standartlara göre üretilmis kartlara da ethernet karti deriz 
+
+-- 10Base-T 
+-- 100Base-T 
+
+-- Bu isimlerde bastaki rakam kablo hizi
+-- Base tek ayni anda tek sinyal
+-- Broad ayni anda birden cok sinyal
+
+- Sondaki T ise kablo tipi (burada twisted demek)
+-- Bu kablo tipinde kablolar büklüm büklüm oldugu icin twisted denir 
+
+-- Ethernet kablosunun hizi ve tipi ne olursa olsun maximum veri ilettigi mesafe 100 metre
+
+-- bu nedenle 100 m de bir yükseltici koymak zorundayiz
+-- bu kablo genelde yerel ag icinde kullanilir
+
+--  ag disina cikanlar ise genelde, coaxial yada fiber kablo olur 
+
+-- 1000Base-LX bu kablo fiber kablodur
+-- mesafe 300 m ile 70 km arasinda degisir
+
+-- okyanuslarin altinda kitalar arasi iletisim icin fiber kablolar dösendi
+-- burada da 5000 m de bir yükseltici koymak zorundayiz 
+
+-- günümüzdeki en hizli ethernet kablosu, 10 Gigabit
+-- fiber optik kablolar ise 70 terabit e kadar gönderim yapar 
+-- bu kablolarin hizina yetisen baska bir teknoloji yok su an 
+
+-- CAT7 fiber kablo kategorisidir.
+-- mesela bizim kapidan evdeki modeme kadar cektigimiz kablo 
+
+
+-- ethernet kablosu icinde 8 adet ince kablo vardir.
+- Bunlar ikili ikili birbiri ile bükülmüstür.
+-- Bu nedenle twisted pair denir 
+
+-- UTP: Unshielded twisted pair (izolasyonsuz)
+-- STP: Shielded twisted pair (aluminyum folyo dis gürültüyü engleyen katman)
+
+-- evlerde tv arkasinda coaxial kablo kullanilir 
+-- bunlar iki türlüdür
+
+1: Thicknet(10Base5)
+
+2: Thinnet(10Base2)  (biraz daha kalin)
+
+-- bus topology de ana kabloya baglanan kablolar bunlardir
+
+
+
+
+-- Fiber kablolarin en icerisinde "core" adinda veri ileten bir kisim vardir 
+-- bu sac telinden daha incedir
+
+-- bunun üzerinde 4 tane daha katman bulunur.
+-- core cam elyafindan yada plastikten yapilir.
+
+-- plastigin performansi daha düsüktür cam elyafi ise 
+-- daha hassastir. 
+-- her türlü bükülebilir ama üzerinden birsey gectiginde zarar görme ihtimali yüksek
+
+
+--- ethernet neden twisted pair?
+
+-- icerisinden elektrik akimi gecen her kablo etrafinda manyetik alan olusur
+-- bu nedenle diger kablolari etkiler
+
+-- iste twisted pair dedigimiz cift kablolarin, birinde veri gönderimi digerinde veri alisi 
+--- yapilir. böylece birbirlerinin manyetik dalagalarini nötr lerler ve diger kablolari etkilemezler 
+
+-- kablosuz sarj lar da bu mantik ile calisir. bir manyetik alan olusturulur ve burada pili sarj eden
+-- devre üzerinde bir elektrik akimi üretilir 
+
+-- manyetik alanin sagliga zararli bir yani yoktur
+
+-- havaalanlarindakiler haric avm girislerindeki gibi aramalar bu yöntem ile yapilir 
+
+-- MR cihazlarinda da manyetik alan kullanilir 
+-- elektromanyetik rezonans
+
+-- dünyanin da kendine ait manyetik alani vardir. günesin zararli isinlarini absorbe eder 
+
+-- manyetik alan olustursak kablo icinden elektrik akimi gecer
+-- kablodan elektrik akimi gecerse manyetik alan olusur 
+
+
+
+
+
+
+##### Collisison Domain:
+
+-- ethernet kablolari half dublex dir 
+-- icerisindeki 8 kablodan 4 ü sadece alma, 4 ü ise sadece gönderme
+
+-- collision network icerisinde paketlerin birbiri ile cakismasidir
+-- ayni anda sadece bir pc gönderim yapabiliyor
+-- birden cok pc gönderim yapmak isterse catisma cikar 
+
+-- collision domain ise catisma cikan alan demektir
+
+-- bu esnada catisma aninda hicbir pc agi kullanamayacaktir
+
+-- collision domain kacinilmaz bir durumdur
+
+-- collision demek iletisimin o anda durmasi demek 
+
+-- bu kacinilmaz bir durumdur ama collision domain in boyutu kücültülebilir
+
+-- 100 pc lik bir alani mesela 4 e bölerek catisma alani kücültülebilir 
+
+-- 25 pc demek daha az catisma demek 
+
+-- hub kullanilan tüm ag larda catisma cikar (en temel seviye cihaz)
+
+-- hub gelen verinin icerigini okumaktan aciz oldugu icin gelen veriyi tüm pc lere gönderir 
+
+-- Bu durumda catismaya sebep oluyor
+
+-- catisma durumunda ise tüm pc ler bir süre bekleyip tekrar göndermeyi deniyorlar
+
+-- bizim evde kullandigimiz fiber kablolar single mod kablodur 
+-- yani tek yönlü gönderim yapar. 
+
+-- Bu nedenle 2 tane fiber optik kablo kullaniriz. Biri alme biri gönderme ve bu iki kablodan 
+-- gelen isin demetlerini converter adinda bir cihaz elektrik sinyallerine dönüstürür ve ethernet 
+-- kablosu ile nerwork devam eder 
+
+-- Ethernet kablosuna iki fiber optik girisi oldugu icin, ethernet icerisinde 8 kablo olmasina
+-- ragmen bu kablolardan sadece 4 tanesi kullanilir. bunlardan da 2 si transmit 2 si de receive icin 
+
+-- Hub kullandigimiz her agda, bir hub'a bagli tüm cihazlarin olusturdugu dis sinir bir collasion domain olur 
+
+-- collesion domain 1 pc ye kadar düsürülebilir
+-- bu da hub dan daha akilli bir cihaz kullanmakla mümkündür 
+
+-- hub sadece kendisine gelen digital sinyalleri cogaltip, diger tüm portlardan gönderir 
+
+-- router ip adreslerini okur 
+-- switch mac adreslerini okur 
+
+-- mesela 3 pc nin bagli oldugu bir hub düsünelim. Bu durumda collesion domain'in boyutu 
+-- 3 pc olur. ama biz burada hub'i kaldirir switch kullanirsak, bu durumda collesion domain 
+-- 1 pc ye düsürülmüs olur.  cünkü switch daha akillidir ve gönderilen ve gelen adresi okuyup,
+-- paketi sadece alacak kisiye gönderir.
+
+-- collesion domain sifirlanamaz cünkü pc ve network mimarisinde bu dogal olarak olusan birseydir 
+
+-- günümüzde pc lerimiz network hizina yetisemedigi icin, collesion domain ler bizim hizimizi 
+-- etkilememektedir
+
+-- eskiden hub lar cok ucuz oldugu icin genelde hub kullanilirdi. simdi ise switch kullanilmaktadir genelde.
+- bu nedenle, catismalar asgari düzeye inmistir
+
+
+
+############  Broadcast domain:
+
+--- tek bir alicisi olmayan mesaja, yani agdaki herkese gönderilen mesaja broadcast mesaj denir.
+-- mesala radyo yayini 
+
+-- mesela aga yeni birisi katildi ve "ben agda yeniyim lütfen bana herkes mac ve ip adresini göndersin"
+-- yazdi ve herkes cevap atti. bu broadcast mesajdir
+
+-- bu mesajlar agin performansini düsürür 
+
+-- broadcast mesaji olmazsa ag iletisimi olmaz 
+
+--  bir broadcast mesaji alan switch, bunu tüm port larindan gönderir.
+-- Böylece bir pc den gönderilen bir mesaj tüm aga yayilir.
+
+-- Broadcast domain in boyutunu düsürmek ise, switch yerine router kullanmakla mümkündür 
+
+-- cünkü router lardan broadcast mesaj gecmez
+
+-- eger kendisini ilgilendiren bir mesaj ise gönderim yapar ama tüm port lara göndermez 
+
+-- hub larin kullanildigi ag da collesion domain,
+-- switch lerin kullanildigi agda broadcast domain olusur 
+
+
+-- CSMA/ CD :
+
+-- Carrier sense multiple access / collision detection
+
+-- collisionlari engellemek icin kullanilir 
+
+-- bizim evimizde kullanilan kablolar ve 
+-- bizim router i mizdan santral e giden kablolar baseband dir 
+
+-- ama operatörümüzden internete giden kablolar broadband olur 
+-- yani ayni anda birden cok sinyal gönderebilirler
+
+--  Bir ag üzerinde dolasan bir frame üzerinde 4 tame adres vardir 
+-- alici ve gönderici mac adresleri 
+--- alici ve gönderici ip adresleri 
+
+- router hepsini okuyabilir
+
+-- router lar aslinda kendi islemcisi olan bir pc dir 
+
+-- switch e göre pahalidir tabi ki 
+
+-- 
