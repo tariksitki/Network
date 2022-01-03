@@ -647,4 +647,27 @@ switch kullandigimizda da collesion domain olusur. ancak bir hub a bagli tüm ci
 
 -- acilimi virtual privat network 
 
+-- biz ethernet karti üzerinden gönderdigimiz veri de artik hicbir kontrol yetkisine sahip degiliz 
+
+-- VPN cihazlari alici ve verici arasinda bir tünel olusturur ve alisveris 
+-- bu tüneller icerisinde olur ve kriptoludur
+
+-- bu cihaz, router in bir türüdür 
+
+-- vpn baglantiyi yavaslatir
+
+
+
+
+
+
+
+--- 802.3  :  ethernet yani kablolu baglanti
+
+--  802.11  : kablosuz baglanti 
+
+
+- eger bir domain e switch dahilse bu collision domain olamaz
+-- broadcast domain dir 
+
 -- 
