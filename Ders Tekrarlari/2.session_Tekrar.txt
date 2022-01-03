@@ -220,4 +220,235 @@
 
 -- switch e göre pahalidir tabi ki 
 
+-- mac adresi ethernet adresi olarak da gecer 
+
+-- mac adresleri hexadecimal yani 16 lik sisteme göre yazilir 
+
+-- ip adresleri 10 luk sisteme göre yazilir 
+
+-- bit:  binary digit kelimelerinin kisaltmasidir ve en kücük veridir
+-- sayi ciftleridir
+
+-- 1 byte 8 bittir
+
+-- 1 nibble:  4 bit yani yarim byte tir 
+
+-- 0x4E   yada 4Eh
+
+-- burada x ve h harfleri, bu sayilarin hexadecimal oldugunu idafe eder 
+
+
+
+--- Ethernet addresing (Mac Address)
+
+-- 48 bit lik (6 bytes or 12 digit hex) hardware number
+
+-- su sekilde yazilir:
+
+-- 00:1A:3F:D3:2C:11  yada 
+-- 00-1A-3F-D3-2C-1 
+
+-- ilk 6 basamak firma ismini verir (organizationally unique identifier)
+-- yani bu karti hangi firma üretmis 
+--  
+
+-- mac number ethernet karti üzerinde rom(read only memory) olarak gömülü gelir 
+
+-- mac number arabalardaki sasi numarasi gibidir ve degistirilemez
+
+-- 2. 6 haneli rakam blogu ise:
+
+-- karta özel adrestir 
+
+-- Network Interface controller specific dir 
+
+
+
+
+######## Types of Mac Adress:
+
+-- 1: Unicast:  tek bir alicisi olan mesaj 
+
+-- biz sadece alicisini yaziyoruz. böylece bir gönderici ve bir alicisi olmus oluyor 
+-- buna unicast mesaj denir 
+
+
+
+############### Multicast:
+
+-- birden cok alicisi olan mesajdir 
+
+-- netflix gibi bir aliciya abone oluyorsunuz ve 
+-- bu aliciya gelen mesajlari aliyoruz
+
+
+
+
+###################   Broadcast:
+
+-- agdaki tüm cihazlara gidecek olan mesaj:
+
+-- gönderici kendi mac adresimiz
+-- alici yerine ise, 
+-- FF:FF:FF:FF:FF:FF bu adres yazilir (bunu gören switch ler bunun broadcast oldugunu anlar 
+-- ve tüm port larindan gönderirler)
+
+-- mac adresi bazen de physical adress olarak da gecer
+
+-- 
+
+-- bir cihazda birden fazla mac adres olabilir mi?
+
+-- Birden fazla interface varsa olabilir 
+
+-- mesela router larin her bir port unda bir network interface kart vardir 
+-- yani her bir porunda ayri bir ethernet karti ayri bir mac adres vardir 
+
+-- bir kisiye mesaj göndermek icin sadece mac adresini bilmek yaterli degildir
+-- ip adresini de bilmek zorundayiz 
+
+-- ayni lan icerisinde isek, broadcast mesaji göndeririz ve ip adresini ögreniriz
+-- daha sonra mesaj gönderebiliriz
+
+-- ama farkli bir agda ise bunnu broadcast mesaji ile bulamayiz. cünkü router lar broadcast 
+--- mesaji gecirmez 
+
+switch kullandigimizda da collesion domain olusur. ancak bir hub a bagli tüm cihazlar sadece bir tane 
+-- büyük collecion domain olusturur 
+
+-- switch e bagli cihazlar ise her biri kendi icerisinde kücük bir collcion domain olusturur 
+
+-- yani 10 port luk bir hub da 1 tane 
+-- 10 port luk bir switch de 10 tane collecion domain vardir 
+
+
+-- evimideki router üzerindeki sayilar:
+
+-- SSID: adimiz, yani ag ismi olarak yayinlanan
+
+-- Ip adresi: modemin ip adresi 
+
+-- bir cep telefonu internete baglandigi icin bir mac adresi vardir 
+
+-- birde mobil cihaz olmasi hasebiyle IMEI adresi vardir 
+-- bu numarada gömülü gelir 
+
+-- switch lerin her bir port'u yani switch lerle ayrilmis her bir alan 
+-- collesion domain dir 
+
+-- router larin her bir port u, yani router larla ayrilmis her bir alan 
+-- broadcast domain dir 
+
+--- IP adresleri iki cesittir:
+
+-- privat (bununla internete baglanamayiz. public ile baglanilir)
+-- modemimizin üzerinde yazan privat ip adresidir
+-- public 
+
+
+################ Networking Devices (cihazlar)
+
+-- Network interface controller(NIC) = Ethernet karti
+
+-- pc leri network icin birbirine baglar 
+
+-- her bir NIC, unique bir mac adresine sahiptir
+
+-- layer 2 de bir cihazdir 
+
+-- gelen mesajin ip adreslerini okuyabilir 
+
+
+
+
+
+##################  Hub:
+
+-- güvenli degildir. cünkü bir mesaji herkes alir 
+
+-- Routing yetenegi yoktur 
+
+-- half dublex dir. ya gönderme ya alma 
+-- ikisini ayni anda yapamadigi icin collesion domain olusturur 
+
+-- layer 1 cihaz 
+
+
+
+
+
+
+#################### Switch:
+
+-- layer 2 cihaz 
+
+-- mesaji sadece aliciya gönderir 
+
+--  Full dublex 
+
+-- switch hangi portunda hangi pc nin bagli oldugunu nasil biliyor?
+
+-- bir tane broadcast mesaji gönderir ve agin haritasini cikarir
+-- böylece gelen her mesaji sadece alici adrese gönderir 
+
+
+
+
+
+
+
+############## Bridge:
+
+-- layer 2 cihaz 
+
+-- bridge ler switch ler kadar pahali degildir 
+
+-- Bu nedenle switch alinamadigi zaman büyük bir colesion 
+-- domain'i bölmek icin kullanilir 
+
+-- cok fazla portu yoktur. en fazla 2 ye yada 4 e bölünebilir 
+
+-- Kullanim amaci:
+
+-- hub larin kullanildigi aglarda collesion domain 'i bölmek icin kullanilir 
+
+-- layer 2 oldugu icin eger adres bir pc ye ait degilse o adrese göndermez 
+
+-- bridge biraz gecici bir cözümdür
+
+-- kalici cözüm switch dir
+
+
+
+
+
+
+#################  Router:
+
+-- ag lardaki en akilli cihazlardan biridir
+
+-- kendi isletim sistemi vardir. bir maus ve monitör monte ederek
+-- pc olarak kullanilabilir, ayarlari yapilabilir 
+
+-- switch ler de yazilim yoktur. tamamen elektronik devreler üzerinden calisir 
+
+-- bunlarda asics denilen cipler vardir. bunlar mac adreslerini yorumlar ve tespit eder 
+
+-- dünya üzerinde interneeti olusturan tüm routerlar birbirine 
+-- mash topology ile bagli 
+
+-- bu cihazlar intenetin bel kemigidir
+
+-- iclerinde cok gelismis algoritmalar vardir 
+
+-- bunlari sürekli calistirarak, dünya da hangi router a en az maliyet ile nasil 
+-- gidecegini hesaplar 
+
+-- router in her bir port u bir lan dir cünkü her bir port un da bir mac adresi vardir 
+-- yani ethernet karti vardir 
+
+-- layer 3 cihaz 
+
+-- bir router in görevi, paketi en hizli sekilde aliciya ulastirmak
+
 -- 
