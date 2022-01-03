@@ -451,4 +451,200 @@ switch kullandigimizda da collesion domain olusur. ancak bir hub a bagli tüm ci
 
 -- bir router in görevi, paketi en hizli sekilde aliciya ulastirmak
 
+
+
+
+
+
+
+
+
+################### Firewall:
+
+## bunun donanimsal kisimlari ve yazilimsal kisimlari vardir 
+
+-- donanimsal kisim, black box olarak isimlendirilir
+
+-- görevi, network de yetkisiz erisimi engellemek 
+-- cift yönlü calisir, disaridan iceriye ve iceriden disariya
+
+-- en büyük amac disaridan gelecek saldirilara karsi korumak 
+
+-- donanimsal kisim, router dan önce yani internet ile router arasina konulur 
+
+-- en gelismisi next generation dedigimiz layer 7 de calisanlardir
+
+-- yani bütün layer lardaki verileri kontrol edebilir
+-- aldatmasi cok zordur 
+
+
+
+
+
+
+
+############### IDS/IPS: 
+
+- Bunlar ilave güvenlik sistemleridir
+
+-- IDS: intrusion detection system:
+    trafigi gözlemler ve tehlikeli hareketleri report eder
+    sadece tespit eder rapor eder engelleme yoktur 
+     aga paralel olarak kkulanilir
+     yaptirim yetkisi yoktur 
+
+-- IPS: intrusion prevention system 
+    tehditleri gercek zamanli olarak anlik olarak durdurur
+    agin icerisinde kullanilir 
+    yaptirim yetkisi var 
+
+
+
+-- cloud da kiraladigimiz tüm serverlara buradaki donanimsal cihazlari ekleyebiliirz
+-- dolayisi ile güvenlik problemi ortadan kalkacaktir 
+
+
+
+
+
+################### Load balancer:
+
+- trafigi arka planda yönlendirir
+
+-- mesela bizim 2 adet pc miz var ve anlik olarak 1000 kullanici var.
+-- 1000 user in hepsini ayni pc ye vermiyor 500 500 olarak dagitiyor.
+- iste bu islemi load balancer yapar 
+
+-- Auto scaling:
+
+-- user sayisina göre cloud da server ayaga kaldiran sistem 
+
+-- belirli bir sayi asildiginda yeni makineler ayaga kaldirir 
+
+-- daha sonra load balancer yeni makineleri de hesaba katarak 
+-- görev dagilimi yapar 
+
+-- Load balancer trafik polisi görevi yapar 
+
+-- ama yeni makine kiralam yetkisi yoktur. bunu asg (auto scaling group yapar )
+
+
+
+
+
+##### DNS server :
+
+-- bizim okudugumuz web isimlerini IP adreslerine cevirir
+
+-- dünyada binlerce dns server vardir. Bu serverlarda ne bulunur?
+-- web site isimleri ve bunlarin ip adresleri bulunur 
+
+-- Biz browser a direkt olarak ip adresi de yazabiliriz. Bu durumda dns server sorgulamaini atladigimiz icin,
+-- web sitesine daha hizli baglaniriz 
+
+-- web sitesi isimleri sabittir ama ip adresleri degisir.
+-- bu nedenle ip adreslerini ezberlesek de ise yaramaz 
+
+-- bu nedenle hic degismeyen dns isimlerini kullaniriz 
+
+-- ip adresi olmadan trafik baslamaz 
+
+
+
+
+
+#### islem sirasi:
+
+-- biz web sitesi ismi gireriz bu dns server a gider 
+--- dns server ip adresini gönderir 
+-- ve bu ip adresi ile trafik baslar 
+
+-- domain isimlerini "IANA" adinda bir kurulus verir 
+
+-- Top level domain:
+-- com
+-- gov
+-- edu
+
+-- gibi uzantisi olan sitelerin istisnasiz hepsinin ip adresinin bulundugu
+-- server lardir 
+
+-- mesela tr uzantili siteler iana nin sorumlulugunda degildir 
+-- türkiye de btk nin sorumlulugundadir
+-- mesela amazon.com.tr btk ya ait  
+
+-- eskiden bu yetki ODTÜ deydi 
+
+-- bu sekilde ülke kisaltmali top level domain server larin neredeyse tamami 
+-- amerika dadir (com, edu, gov)
+
+-- IANA da ICANN(Internet corporation for Assigned Names and Numbers)
+-- tarafindan calistirilir
+
+--- her pc de default olarak bir dns server vardir. eger degisiklik yapmazsak
+-- ip adresleri herp ayni server da sorgulanir 
+
+
+
+
+
+#### Proxy server:
+
+-- agirlikla filtre görevi gören bir server 
+
+-- mesela bir is yerinde isveren calisanlarin belirli sitelere girmelerini istemiyor
+-- bu durumda kullanilir 
+
+-- iceriden disari giden istekler ve disaridan iceri gelen istekler filtrelenir 
+
+-- bizim ve internet arasinda kapi gibi hareket eder 
+
+-- güvenlik duvari yada filtre gibi hareket eder 
+
+-- sik kullanilan siteleri kaydeder ve bu sitelere giris hizli olur 
+
+-- privacy mahremiyet saglar 
+
+
+
+
+
+
+############# encrytion devices 
+
+-- bazen de encrytion gateway olarak adlandirilir
+
+-- güvenli olmayan kanallara güvenli iletisim imkani sunar 
+
+-- yazilimsal ve donanimsal sifreleme olarak ikiye ayrilir 
+
+
+
+
+
+
+############# Packet shaping (traffic shaping)
+
+-- mesela kotali internetler de kotayi astiktan sonra hizi düsüren cihazlar bunlardir 
+
+-- mesela patronun önemli bir görüsmesi var. patrona ayri bir band genisligi aciyor.
+
+-- bu cihazlar kisiye özel band genisligi acan, kota doldugunda hizi düsüren cihazlardir
+
+-- bu isi yapan ciahazlara packet shaper denilir
+
+
+
+
+
+
+
+
+
+############ VPN concentrator:
+
+-- yazilimsal ve donanimsal olarak iki türlüdür :
+
+-- acilimi virtual privat network 
+
 -- 
