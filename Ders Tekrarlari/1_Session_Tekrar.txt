@@ -211,7 +211,7 @@ telephony server
 bir kablodur 
 
 
-## Transmission media:  verinin iletildigi ortamlar
+## Transmission media:  verinin iletildigi ortam demektir  
 
 ## ikiye ayrilir:
 
@@ -499,7 +499,7 @@ osi ile tcp ip arasinda hicbir fark yoktur. osi model
 
 -- Bu katmanda veri translate edilir
 -- encryption yani sifreleme yapilir 
--- ve performansi artirmak icin veri sikistirilir 
+-- ve performansi artirmak icin veri sikistirilir (compressing data)
 
 -- internette verile 1.5 KB lik paketler halinde gönderilir. Bu nedenle performansi artirmak icin 
 -- her veri sikistirilmalidir
@@ -552,13 +552,22 @@ osi ile tcp ip arasinda hicbir fark yoktur. osi model
 
  -- üst katmandan gelen veriler artik paketlere cevrilir. günümüzdeki isimleri ip packets dir 
   yukarida segmentlere ayrilmis data bu katmanda ip packet lere dönüstürülür 
+  -- paketler icerisinde ne vardir. gönderici ve alici ip adresleri vardir 
 
 --- bir cihaz, internet üzerinde alisveris yapabilmek icin iki seye ihtiyac duyar 
 1: ip adres 
-2: mac adres 
+2: mac adres (media access control adress)
+- her cihaz fabrikadan cikarken icine gömülü bir adres cikar.
+-- bütün ethernet kartlarinin adresleri unique dir 
 -- bunlarin ikisi de unique dir ve dünya üzerinde esi yoktur 
 -- ip adresi farkli network lerdeki cihazlarin haberlesmesi icin kullanilirken
 -- mac adresi ayni network icerisindeki cihazlarin haberlesmesinde kullanilir  
+
+-- ip paketi olustururken gönderici ve alicinin ip adreslerini ekliyoruz 
+-- frame olusturken ise mac adreslerini ekliyoruz 
+
+-- ip paketlerini de kernel hazirlar. 
+-- data link layer a geldigimizde ise ethernet karti icerisindeki cipler veriyi bit stream lere cevirir
 
 -- layer 3 de ip adresleri gündemde layer iki de ise mac adresleri 
 -- gündemdedir. yani ayni network icerisindeki cihazlar haberlesecek ise bu durumda 
@@ -568,7 +577,19 @@ osi ile tcp ip arasinda hicbir fark yoktur. osi model
 
 -- layer 2 her halükarda ugrak noktasidir. mac adresi her ihtimalde kullanilir 
 
+-- ip adresi logical bir adrestir yazilimsal olarak her internete baglandigimizda 
+-- farkli bir ip adresi alabiliriz 
 
+-- ama mac adresleri degismez . aga baglanan tüm cihazlarda, telefon, akilli tv, pc mutlaka mac 
+- adresi bulunur . network interface adapter denilen yani ethernet karti tüm cihazlarda bulunur 
+
+-- ip adresi türkcell, vodafone gibi internet saglayicilari tarafindan bize verilir 
+
+-- mac adresini degistirmek icin ethernet karti degismesi gerekir 
+-- ama günümüzde bu pek mümkün degil fabrikadan gmülü gelir
+
+-- mac adres : donanimsal 
+-- ip adres: yazilimsal
 
 2:  Datalink layer: network deki datanin formatini tanimlar
 
@@ -577,9 +598,20 @@ osi ile tcp ip arasinda hicbir fark yoktur. osi model
 
 1:  Physical Layer: Bit akislarini fiziksel ortama iletir
 
+-- verinin elektrik sinyallerine(bit stream) cevrilip elektrik sinyalleri seklinde islem 
+-- gördügü katmandir 
 
+-- Burada daha cok kablolar ön plandadir
 
+-- layer 1 cihazlar sunlardir ve bunlarin veriyi isleme kapasitesi yoktur 
+-- sadece veriyi iletirler
 
+-- cables
+- transeivers
+-- repeaters
+-- media converters
+-- modems 
+-- hubs 
 
 
 
@@ -590,3 +622,80 @@ Not: 7,6 ve 5 inci katmanlar upper layers olarak gecer ve
 4, 3, 2, 1 ise donanimla yani network la ilgilidir 
 
 
+
+
+############## Data Encapsulation:
+
+-- layerlar arasinda veri göndermek icin, verinin hazirlanma islemine denir 
+
+-- verinin 7. kattan 1 e dogru inisine encapsulation denir 
+
+-- daha sonra 1. katmandan 7 e dogru cikisina da de-encapsulation denir 
+
+-- encapsulation transport (4.) layer da baslar. burada segmente dönüstürülür 
+
+-- network layer da tekrar encap. olur ve packet e dönüsür 
+
+-- 2. katmanda (data link)  frame e dönüsür 
+
+-- ve en altta da bit stream e dönüstürülür 
+
+
+
+-- 1. layerdan gecen veri router ile aga gönderilir 
+
+-- daha sonra baska bir network veriyi alir ve az önceki islemlerin tersini uygulayarak
+-- 7. katmana applicationlara gönderir 
+
+
+-- ag üzerindeki tüm veriler frame seklinde gönderilir.
+-- bununda max boyutu 1.5 KB boyutundadir 
+
+-- ne gönderirsek gönderelim internetteki veriler frame ler seklinde gönderilir 
+
+-- layer 7 cihaz denildiginde bunun OSI modele göre siniflandirilmis bir cihaz oldugunu 
+-- anlayacagiz. 
+
+-- mesela layer 7 cihaza örnek, Fire Wall dur. Güvenlik duvarlari hem yazilim hem donanim olabilir 
+
+-- router layer 3 cihazdir. bu, gelen paketin icerisini acip ip adresini okuyabilen cihaz demektir 
+-- aksi takdirde internette veri gönderimi yapilamazdi
+
+--  2. layer cihazlar ise veri paketinin icerisini acip ip adreslerini okuyamaz
+
+--  layer 3 cihaz demek, layer 1, 2 ve 3 ün hepsinin standartlarini sagliyor demektir 
+
+-- yani router 2. katmandadaki bir frame in icini acip okuyabilir 
+
+
+
+
+-- 7, 6 ve 5. katmanlarda data hazirlanir
+
+-- 4. katmanda bu datanin basina bir segment header konulur
+
+- 3. katmanda basina packet header konulur 
+
+-- 2. katmanda ise basina frame header ve frame trailer konulur 
+
+
+-- de-encapsulation da ise baslara konulan tüm bu header lar kaldirilarak yukari dogru cikilir
+
+
+
+
+
+-- wifi router la, mac adresimiz olmadan iletisim kuramayiz
+
+-- dünyada belli sayida ip adresi var. bu nedenle ip adresimizden hangi bölgeden
+-- internete baglandigimiz belli olur 
+
+-- mac adresi router dan öteye gidemez
+
+-- her frame de yeni bir mac adresi devreye girer 
+
+-- hub veya switch lere ihtiyac duyan topology star topology 
+
+-- osi modelin kullanim amaci: üreticiler icin bir standart olusturmak 
+
+-- 
