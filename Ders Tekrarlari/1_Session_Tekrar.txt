@@ -226,11 +226,367 @@ bir kablodur
     asil adi twisted pair ama ama ethernet kablosu olarak da bilinir)
 
         -- Kendi icinde izolasyonlu ve izolasyonsuz olarak ikiye ayrilir
-## unguided media: kablosuz 
+## unguided media: kablosuz (mesela bluetooth)
+
+       -- kendi icinde 3 e ayrilir:
+            -- radyo dalgalari
+            -- Mikrodalga sinyaller
+            -- infrared 
 
 
 
 ## media aklimiza verinin depolandigi veya iletildigi bir ortamdir
 ## mesela cd, dvd, flash bellek, 
+
+
+### communication tüm dünyada 3 cesittir:
+
+1: simplex: sadece tek yönlü iletisim 
+
+2: Half duplex: iki yönlü iletisim mümkün ama ayni anda sadece biri yapilabilir 
+
+## mesela walky talky telsizler
+
+3: Full duplex: ayni anda hem alma hem gönderme mesela telefon
+
+
+
+########### MAN (metropolitan area network)
+-- sehir capinda
+
+### CAM: campus area network: 
+-- genel üniversite campuslerinde
+
+
+### WAN: birden cok agdan olusur 
+
+
+
+
+#####################  Network Topology:
+
+## Kendi icerisinde ikiye ayrilir:
+
+## Physical topology: Pc lerin fiziksel pozisyonu
+
+## Logical topology: verinin network üzerinde iletim sekli 
+
+## physical ile logical topology birbiri ile ayni olmak zorunda degildir 
+
+## Topology sunlara baglidir:
+
+-- Office düzeni (office layout)
+-- Troubleshooting teknikleri
+-- Kurulum maliyetleri
+-- Kullanilan kablonun sekline (özellikle fiber kablo cok pahali)
+
+
+
+### Fiziksel topology sekilleri:
+
+1: Bus topology: 
+
+-- Backbone adinda kalin ve hizli bir kablodan olusan ana hat bulunur 
+Diger cihazlar daha ince kablolar ile bu ana hatta baglanir 
+-- Backbone un diger adi fast link 
+
+-- ana hattan gecen kablonun rolü bus kendi tipi fast link kablo 
+
+-- agirlikli olarak askeri sistemlerde kullanilir 
+
+-- dizilimi kolay basit 
+
+-- maliyeti düsük (sadece bir kablo ve birkac jag alinir)
+
+-- eger ana kablo cökerse tüm network cöker 
+
+-- düsük network performansi 
+
+-- ayni anda sadece tek bir cihaz gönderim yapabilir. digerleri beklemek zorundadir
+
+-- Not scalable(üzerine ekleyebilecegimiz cihaz sayisi belirlidir)
+
+-- Backbone ethernet kablosundan daha saglam bir kablodur 
+
+
+
+
+
+
+
+
+2: Star Topology: 
+
+-- günümüzde en cok kullanilan tip 
+
+-- ortadan hub veya switch var tüm cihazlar buna bagli 
+
+-- evlerde kullanilan yöntem bu 
+
+-- tüm cihazlar wifi router a bagli 
+
+-- yönetimi kolaydir
+
+-- sadece birkac kabloya ihtiyac duyar
+
+--- eger ortadaki cihaz giderse tüm ag cöker 
+
+-- performans tamamen ortadaki cihaza bagli 
+
+-- node larin yani cihazlarin kapasitesi cok önemli degil 
+
+ -- evlerdeki internetin hizi gibi. pc mizin ne kadar hizli oldugunun pek 
+ -- önemi olmuyor 
+
+
+
+
+
+
+ 3: Ring Topology: 
+
+ -- IBM gelistirdi
+
+ -- burada yine sympex kablo var 
+
+ -- tüm pc ler cember seklinde bir sonraki cihaza bagli 
+
+ -- iletisim saat yönünde olur 
+-- bu nedenle eger solumuzdaki cihaza veri göndermek istersek
+-- tüm cemberi dolasiriz 
+
+-- cift ring yöntemi de mümkündür iki yönde 
+
+
+
+
+
+##### Mash Topology: 
+
+-- Agdaki tüm cihazlar birbirleri ile baglidir 
+
+-- reliable yani güvenilir. cünkü agdaki birkac cihaz cökse bile 
+-- iletisim devam eder 
+
+-- configuration komplex dir 
+
+- pahalidir (cok fazla kabloya ihtiyac duyar)
+
+-- interneti olusturan router lar bu tip 
+
+ -- cok karmasik bir yapidir. router larin görevi sürekli olarak 
+ -- en az maliyetli yolu bulmaktir
+
+
+
+
+
+
+ 4:  Tree (hierarchy ) Topology:
+
+ -- agac ve onun kollari gibi bir yapidadir 
+
+ -- ortada root adinda ana bir cihaz vardir 
+
+ -- Bu cihaza switch yada hub lar baglayarak ag olusturulur 
+
+ -- genellikle eskiden Üni lerde kullanilirdi
+
+ -- yönetimi zordur ama en scalable yöntemlerden biridir 
+
+ -- kapasite doldugunda yeni switch yada hub lar ekleyerek yeni 
+ -- cihazlar ekleyebiliyoruz 
+
+ -- root cökerse tüm ag cöker 
+
+
+
+
+
+ 5: Hybrid Topology:
+
+ -- birden cok yöntemin birlesimidir
+
+ -- Cogu firma birden cok topology kullanir 
+
+ -- flexible dir 
+
+ 
+
+
+
+
+6: Point to point topology:
+
+-- Bir cihaz sadece bir cihaza bagli 
+
+-- bus 'a benzer ama burada backbone kablo yok 
+
+-- ring'de bir cihaz ayni anda iki cihaza bagli 
+-- burada ise sadece tek pc ye bagli 
+
+-- mash topology lerde her bir pc diger bir pc ye bu 
+-- yöntem ile baglidir
+
+-- yani interneti olusturan router lar birbirine bu sekilde bagli 
+
+
+
+
+Not: su anda bi internete karasal baglantilar ile baglaniyoruz
+-- fiber de bu sekilde ADSL WDSL de bu sekilde 
+
+-- starlink ise cift yönlü uydu internetidir. 
+
+-- en büyük avantaji diger sirketlere göre, yörüngesi cok alcak 
+-- dünyaya cok yakin . amac response time' i düsürmek 
+
+-- en yavas internet uydu internetidir. mesafelerden dolayi 
+
+
+
+## Günümüzde en hizli kablo fiber optik dir 
+
+
+
+
+
+
+
+
+
+###################### OSI 
+
+-- su an da internet  TSP IP model üzerinde calisir 
+-- ama ag cihazlarimizda OSI model üzerinde calisir 
+
+osi ile tcp ip arasinda hicbir fark yoktur. osi model 
+-- tüm sistemi 7 katmana bölmüsken tcp ip 4 katmana bölmüstür 
+
+-- günümüzde internet tcp ip sistem üzerinde kuruludur. osi ise daha cok donanim 
+-- ütericileri tarafindan kullanilmaktadir
+
+-- eskiden sadece ayni yazilim ve donanimsal özelliklere sahip cihazlar birbiri ile iletisim 
+-- kuarabiliyordu. Bu nedenle ISO tarafindan 1984 yilinda bir 
+-- standart gelistirildi. Böylece tüm cihaz üreticileri bu standartlara göre üretim yapmaya 
+-- basladilar ve tüm cihazlar birbiri ile iletisim kurabilir oldu 
+
+-- Bu model bir zorunluluk degildir sadece tavsiye niteligindedir
+-- isteyen üretici kafasina göre üretim yapabilir ama kimse tercih etmez 
+
+-- OSI nedir ??
+
+-- tüm sistem 7 katmana bölünmüstür
+
+-- üstten asagi su sekildedir:
+
+
+7: Application layer: insan ile pc nin etkilesime gectigi katmandir
+-- app ler network servislerine giris saglar
+-- userlar olarak bizler sadece bu katmanda iletisime geceriz 
+
+--- burada bizim pc mizdeki browser ve app ler bulunur.
+-- mesela biz browser a bir web adresi yazariz ve tiklariz. bundan sonra 
+-- 7. katmandan 1 e kadar tüm sürec isler. 7. katmandan sonra bizim hicbir müdahalemiz yoktur
+
+-- 7 den 1 e gider. sonra 1 den 7 ye kadar cevap gelir ve biz en son yaniti görürüz mesela google.com 
+--u arama motoruna yazmamiz gibi 
+
+
+6: Presentation layer: 
+
+-- biz arama motoruna google.com yazdiktan sonra bu 7. katmandan 6. katmana iletilir
+
+-- Bu katmanda veri translate edilir
+-- encryption yani sifreleme yapilir 
+-- ve performansi artirmak icin veri sikistirilir 
+
+-- internette verile 1.5 KB lik paketler halinde gönderilir. Bu nedenle performansi artirmak icin 
+-- her veri sikistirilmalidir
+
+
+5: Session layer: iletisimin devamliligini saglar port larin ve sessionlarin
+-- kontrolünden sorumludur 
+
+--- 2 cihaz arasindaki communication in baslatilmasi ve 
+-- kapatilmasindan sorumludur 
+-- communication in acilmasi ve kapanmasi arasinda gecen süre 
+-- session olarak bilinir 
+
+- mesela netflix e giris yaparken sifre gireriz ve session baslar. ne zaman oturumu kapatirsak
+-- bu durumda session sonlanir
+
+-- giris esnasinda girdigimiz sifreler biy yere yazilmaz hafiyada tutulur. cikis yapinca da silinir
+-- ve yeni giris esnasinda tekrar sifre istenir
+
+4: Transport layer: TCP ve UDP gibi iletim protokollerini kullanarak
+-- datayi iletir
+-- Bu katmanda isletim sisteminin kernel'i söz sahibidir. baska  bir yazilim yada donanim 
+-- söz sahibi degildir 
+
+-- buradaki kernel dan sonra da donanim kismi baslar 
+
+-- hicbir app hicbir donanima dogrudan ulasamaz. öncelikle kernel den müsaade istenir.
+-- mesela zoom esnasinda kamera kullanimi kernel izni ile olur 
+
+-- iste network de de bu katmanda kernel devreye girer ve yukaridan gelen bilgiyi
+-- ethetnet kartina ag kartina iletmek icin hazirlar
+
+- burada data encapsulation denilen datayi segmentlere bölme islemi baslar 
+
+-- buraya kadar veri tek parca halinde geldi. buradan sonra veri aga iletilmek icin minin parcalara ayrilir 
+-- olusan her bir parcaya segment denir 
+
+-- kontrolün akisindan da sorumludur bu katman 
+-- gelen giden trafigin akisindan 
+
+-- gelen verilerin dogrulugunu,  giden verilerin ise ulasip ulasmadigini kontrol eder 
+
+--- error kontrol yapar. eger veri hatali ise hicbir cihaz düzeltmek ile ugrasmaz
+-- hatali veri diskart edilir 
+
+
+3: Network layer: Datanin hangi fiziksel yolu alacagina karar verir 
+ -- artik donanimin oldugu kisma gecildi 
+ -- burada aglar arasinda yada cihazlar arasinda data transferine baslanir
+
+ -- üst katmandan gelen veriler artik paketlere cevrilir. günümüzdeki isimleri ip packets dir 
+  yukarida segmentlere ayrilmis data bu katmanda ip packet lere dönüstürülür 
+
+--- bir cihaz, internet üzerinde alisveris yapabilmek icin iki seye ihtiyac duyar 
+1: ip adres 
+2: mac adres 
+-- bunlarin ikisi de unique dir ve dünya üzerinde esi yoktur 
+-- ip adresi farkli network lerdeki cihazlarin haberlesmesi icin kullanilirken
+-- mac adresi ayni network icerisindeki cihazlarin haberlesmesinde kullanilir  
+
+-- layer 3 de ip adresleri gündemde layer iki de ise mac adresleri 
+-- gündemdedir. yani ayni network icerisindeki cihazlar haberlesecek ise bu durumda 
+-- 3. katman atlanir 2. katmana gecilir 
+
+-- mac adresi makine adresi olarak düsünülebilir
+
+-- layer 2 her halükarda ugrak noktasidir. mac adresi her ihtimalde kullanilir 
+
+
+
+2:  Datalink layer: network deki datanin formatini tanimlar
+
+-- upper layer dan paketleri alir ve bunlari frame lere dönüstürür 
+
+
+1:  Physical Layer: Bit akislarini fiziksel ortama iletir
+
+
+
+
+
+
+
+Not: 7,6 ve 5 inci katmanlar upper layers olarak gecer ve 
+-- operating sistem yani yazilim ile ilgilidir 
+
+
+4, 3, 2, 1 ise donanimla yani network la ilgilidir 
 
 
