@@ -786,6 +786,129 @@
 -- normalde 256 tane olur ama tüm class larda 0000000000 ve 1111111111 reserved 
 -- adresler oldugu icin bu ikisini toplam sayidan cikartiriz 
 
+--- 192 ila 223 arasi 
 
 
 
+### class d : 
+
+-- 224 ila 239 arasi ile baslar 
+
+
+
+
+
+## class E:
+
+-- 240 ila 255 arasi 
+
+-- günlük hayatta kullanilmaz 
+
+- test ler icin ayrilmistir 
+
+
+
+##########################################################
+
+A:   1-127   NHHH (Burada N network id H host id)
+
+B:   128-191 NNHH
+
+C:   192-223 NNNH
+
+
+
+--- router lar buradaki H kismi ile hic ilgilenmezler. sadece N kismina bakarak paketin hangi 
+-- network e ait oldugunu anlarlar
+
+
+
+
+
+
+
+
+######## privat ip address:
+
+
+-- ipv4 günümüzde ihtiyaclari karsilamiyor yeterince ip adres yok 
+
+-- bu nedenle söyle bir cözüm bulunmustur:
+
+-- farkli farkli lokal aglarda bulunan ve cakisma ihtimali olmayan
+-- cihazlara ayni ip adresi verilerek bunlara privat ip adres denilmistir.
+
+-- internete public ip ile cikis yapildigi icin, privat lar sadece lokaller de kullanilir ve 
+-- cakisma ihtimaller iyoktur 
+
+-- google da what is my ip yazarsak, kendi internete cikis yaptigimiz
+-- public ip mizi görürüz 
+
+-- privat ip miz ise bundan farklidir 
+
+-- privat ip olarak reserve edilmis olanlar:
+
+class A:  10.0.0.0 to 10.255.255.255 
+
+class B: 172.16.0.0 to 172.31.255.255
+
+class C: 192.168.0.0 to 192.168.255.255
+
+
+
+
+
+
+
+
+##### NAT :  (Network address translation)
+
+--  lokalimizde, ip adresimiz var, ve biz internete cikis yapmak istiyoruz.
+
+-- iste burada nat cihazlari devreye girer.
+
+-- bu cihaz lokaldeki privat ip adresini alir, NAT table da bir public ip adresi ile eslestirir 
+
+-- internete bu public ip adresi ile cikis yapar 
+
+-- yani network adresimizi translate eder
+
+
+
+-- Not: ISP (internet service provider)
+
+
+
+##### types of NAT:
+
+-- Overloading or Port Address Translation: (PAT)
+
+-- bu en yaygin olan NAT türüdür
+
+-- Bu sistemde ortada pat olarak ayarlanmis bir NAT cihazi var 
+
+-- bu, privat ip adresinin karsisina bir port numarasi atar.
+
+-- böylece farkli pc ler ayni public ip adresini kulanarak internete cikis yapabilir. cünkü 
+-- hepsine ayrilacak kadar port numaralari var 
+
+--  yani privat ip adresinin arkasina bir port numarasi eklenir ve 
+-- bu numara ile internete talep gider. gelen cevap yine port numarasi ile gelir. ve 
+-- NAT table gelen cevabi bizim privat ip adresimize cevirerek cevabi bize iletir 
+
+-- evimizde bu islemi wifi router lar yapar 
+
+- wifi router lar, hem modem, hem DHCP server hem de NAT cihazidir 
+
+-- biz evimizdeki hangi cihazdan, google da ip adresimizi sorgularsak
+-- hepsinde ayni cevai aliriz, cünkü ISP bize bu ip adresini vermistir
+
+-- peki gelen veri evimizdeki hangi cihaza geldi ?
+
+-- bunun ayrimini da iste, port numaralarindan ayirim yaparak PAT cihazi 
+-- vazifesi gören wifi router yapar 
+
+-- disarida telefonla internete baglandigimizda ise, operatörümüzün baz istasyonunda 
+-- bir NAT cihazi vardir. bu cihaz üzerinden internete cikis yapariz 
+
+-- 
