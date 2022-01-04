@@ -384,10 +384,408 @@
 -- connection-oriented          connectionless
 -- slow                         fast
 -- guaranted transmission       no guarentee
--- flow control                 no flow control 
+-- flow control                 no flow control (akis kontrol yok tüm paketler ayni anda gider)
 -- reliable                     unreliable
 -- virtual circuit              no virtual circuit 
 -- acknowledge                  no acknowledge
 -- 20 bytes header              8 bytes header 
 
--- 
+-- günümüzde tcp suite kullanan tüm cihazlar bu iki protokolü kullanir 
+
+-- biz üst katmanda application yada prozess layer da hangi protokolü kullanirsak kullanalim 
+-- o protokol tarafindan hazirlanan veri, transport layer da tcp yada udp protokol kullanilarak 
+-- karsi tarafa gönderilir 
+
+
+
+
+
+
+
+
+
+### TCP/IP protokolün en üst katmani olan Applicaton layerdaki protokoller:
+
+-- muhakkak her amac icin özellestirilmis bir protokol vardir ve her protokolün bir port numarasi vardir 
+
+-- pc üzerinde arka planda onlarca prozess calisir ama hicbiri birbirine karismaz peki 
+-- her bir app tüm verileri ayni kablo ve internet üzerinden gönderim yapmasin aragmen neden karisiklik olmaz?
+
+-- cünkü herbir prozess kendisine bir port belirler. 2 üzeri 16 yani 65536 tane port vardir ve her bir 
+-- prozess bir tanesini secer ve verilerini oradan gönderir 
+
+-- eger iki ayri sürec ayni portu kullanirsa cakisma olur veri iletimi olmaz 
+
+-- 65536 ader port 3 gruba ayrilmistir. 
+
+-- Birinci grup reserved port lardir. mesela port 80 http portudur 
+
+-- pc de baska hicbir sey bunu kullanamaz. eger bir app yazilimi yaparsak ve buna port 80 i 
+-- kullanma sarti koyarsak bu durumda app calismayacaktir 
+
+-- Ikinci grup: well known port lar.
+
+-- bunlar da belirli app ler tarafindan sik kullanilan port lardir. ancak burada birinci grup gibi 
+-- kullanimimizi engelleyen bir durum yoktur. sadece baska bir app ile ayni port u kullanirsak cakisma olur 
+
+-- 3. grup da digerleri dir 
+
+-- genelde 1 den 1000 e kadar olanlar reserved dür 
+
+-- 1000 - 30000 arasi wel known 
+
+-- Biz bir app gelistirirsek 30.000 ve üzeri kullanmaliyiz 
+
+-- bu durumda cakisma riski azalacaktir 
+
+
+
+
+
+
+
+
+
+
+
+##### FTP (File transfer protokol)
+
+-- burada amac web üzerinde dosya transferi yapmak 
+
+-- mesela www.google.com yaziyoruz. google in ftp sitesi olsa 
+
+-- ftp.google.com yazariz 
+
+-- büyük sirketlerin ftp server i vardir 
+
+-- bunlar genelde privat olur ve giriste kullanici adi ve sifre ister 
+-- public olan ftp server larda vardir 
+
+-- ftp protokol, tcp protokolünü kullanir ve 
+-- port 20 ve 21 fdp protokülüne baglanmis durumda 
+
+-- tüm protokoller ilk ciktiklarinda secure degildi sonradan yeni protokol yapmak yerine 
+-- var olanlar secure hale getirilerek devam edildi
+
+
+--  FTPS :  ftp nin   https gibi secure hali 
+
+-- TFTP:  Trivial ftp 
+-- bu hizlidir cünkü tcp degil udp kullanir 
+
+-- burada fdp kadar islem yok sadece dosya gönderme ve alma yapilir 
+
+-- SFTP : secure FTP 
+
+
+
+
+
+
+
+
+
+
+
+### SSH protokol :
+
+-- Secure Shell protokol, kullaniciya, remote machine de 
+-- komutlari calistirabilmek icin güvenli bir connection olusturulur
+
+-- uzaktaki bir makineye baglanmak icin kullanilir 
+
+-- bit kriptografik protokoldür 
+
+-- bütün communication asimetrik encryption ile kriptolanir 
+
+-- asimetrik bir tane privat bir tane public key demektir 
+
+-- bu key iki taraf da da olmasi lazim. eger bir taraf da olmazsa iletiism kurulamaz
+
+-- mesela awd de olusturulan makinelere ssh kullanilarak baglanilir 
+
+-- tcp port 22 kullanilir. karsi tarafta bu port acik degilse ssh ile baglanamyiz firewall izin vermez
+
+-- ssh bize baska bir pc ye baglanma ve onu yönetme yetkisi verdiginden,
+-- privat cihazlarda genellikler port 2 kapatilmistir 
+
+-- ssh tüm isletim sistemlerinde yüklü olarak gelir 
+
+-- fdp bazilarinda yüklü olarak gelmez 
+
+
+
+
+
+
+
+
+### Telnet: 
+
+-- ssh ile ayni ma´ksatla kullanilir ama kriptolama yok 
+
+-- gönderdigimiz tüm veriler clear text dedigimiz acik text formatinda gider 
+
+-- ssh dan önce kullanilan protokoldü 
+
+-- windows da bunu acmak istesek de güvenli olmadigini söyleyecek ve ssh kullanmamizi tavsiye edecek 
+
+
+
+
+
+
+
+
+
+#### RDP:  (remote desktop protocol)
+
+-- windows, uzaktaki cihazlari kontrol etmek icin gelistirdi 
+
+-- ssh dan farki;
+
+--ssh da tüm islemler terminal kullanilarak yapilir 
+
+-- rdp de ise teamveawer gibi karsi tarafin ekranini görüyoruz ve grafiksel bir arayüz var 
+
+-- karsi tarafa baglaniyoruz onun ekranini kendimize yansitiyoruz ve kendi maus klavyamiz ile 
+-- onun klavye mausunu kullaniyoruz 
+
+
+
+
+
+
+
+
+
+### http:   (hypertext transfer protokol)
+
+-- http port 80 kullanir 
+
+-- https port 443 kullanir 
+
+-- örnek response codes:
+
+-- 200: the request was succesful 
+
+-- 404: page not found
+
+-- https,  TLS yada SSL ile kriptolama yapar 
+
+
+
+
+
+
+##### Email protokolleri:
+
+-- POP (post office protocol)
+
+- IMAP (internet message access protocol)
+
+-- bunlarda email server la haberlesmek icin kullanilir 
+
+-- pop ne icin kullanilir:
+
+-- mesela birden cok domain de email hesabimiz var. pop vasitasi ile 
+-- buradaki email hesaplarimizi alip kendimizdeki tek bir uygulamada 
+-- görüntüleyebiliriz 
+
+-- imap pop a göre daha hizlidir 
+
+
+
+
+
+
+
+### Multimedia Protokols:
+
+-- SIP: Session initiation protocol 
+
+-- RTP: Real-time transport protocol 
+
+-- MGCP: Media gateway control protocol 
+
+-- H.323:  real time video audio ve data information icin bir standard saglar 
+
+
+
+--- Burada bulunan protokoller, günlük hayatta youtube gibi striming hizmetlerinin arka planinda calisir 
+
+
+
+
+
+
+
+### Utility protocols:
+
+-- bizim dogrudan degilde, network administrator larin kullandigi protocollerdir 
+
+-- SNMP:  Simple network management protocol: 
+
+-- bu, networkle ilgili belirli istatistikler tutar. eger bir problem olusmus ise 
+-- network admin önce gelip bu protokolün ciktilarina bakar 
+
+
+
+
+
+
+#### NTP (Network time protokol):
+
+-- veri alis verisi yapabilmek icin cihazlardaki zamanlar senkronize olmak zorundadir.
+
+-- internette ntp server lar vardir. biz internete baglanir baglanmaz, windows, linux yada mac os 
+-- bu ntp serverlara baglanip pc nin zamanini senkronize eder.
+
+-- böylece internetteki tüm pc ler ayni saate sahip olurlar. 
+
+-- isletim sistemimizde, saati otomatik olarak ayarla secenegi kapatildiginda,
+-- bazi applicationlarin calismasinda hata aliriz 
+
+
+
+
+
+
+
+
+##### DHCP: (Dinamic host configuration protokol)
+
+-- agdaki tüm cihazlarin benzersiz ip ve mac adresleri olmasi gerekir demistik.
+
+-- peki bu nasil saglanir. aga bagli pc lerden biri mutlaka dhcp server olarak görev yapar.
+
+-- bizim evimizde bu görevi wifi router yapar. bu cihaz ayni zamanda bir dhcp server dir.
+
+-- biz router a baglandigimiz zaman, bize bir ip adress verir 
+
+-- router evdeki tüm cihazlara tek basina dagittigindan, evdeki tüm ip adresleri benzersizdir 
+
+
+
+
+
+
+
+#### LDAP: (lightweight directory access protocol)
+
+
+
+### TLS / SSL: 
+
+-- internet üzerinde, bir program dizayn ettigimizde bunun bir tls yada ssl sertifikasi olmasi gerekir 
+
+
+
+
+
+
+
+
+
+#### IP Adressing:
+
+-- IP terminoloji: ip adresinin her bir bölümüne octet denir 
+
+-- 1. 2. 3. 4. octet diye ayrilir 
+
+-- octet 8 lik demektir. bir ip adresi 4 byte dan olusur yani 32 bit 
+
+-- yani ip adresi 32 bit, 4 byte, yada 4 octet dir 
+
+-- ip adresi 8 lik, 2 lik veya 16 lik tabanlarda yazilabilir
+
+--- Network address: host addres dir 
+
+-- network id de host id dir 
+
+-- ip adresinin structured bir yapisi var(yani hiyerarsik) lineer degildir böylece routing i mümkün kilar 
+
+-- bir ip adresi, bir network kismindan birde ip host kismindan olusur 
+
+-- bu iki bilgiyi kullanarak biz, istedigimiz paketi istedigimiz kisiye gönderirirz
+
+-- yani, ip adresin ilk yarisi, network adresidir
+
+-- diger yarisi ise, o network icerisindeki host adresidir.
+
+-- dolayisi ile ayni network e ait olan tüm hostlarin ip adresleri ayni network adres ile baslar 
+
+-- ip adresi tasarlayanlar 5 class'a ayirmislardir:
+
+
+
+
+--- class A:  ilk bit'i 0 ile baslar ve sadece ilk octet network ID'yi diger 3 octet host id'yi verir 
+
+-- class B:  10 ile baslar ve ilk 2 octet network id, diger 2 octet host id 
+
+-- class C : 110 ile baslar. ilk 3 octet network id, son octet host id 
+
+-- class d ve e yi cok göremeyiz
+
+
+
+
+### class A:  
+
+-- dünyada 127 tane class A unique network olusturulabilir 
+
+-- 16.777.214 tane de class A da host tanimlanabilir
+
+-- 0000000000 ve 01111111  adresleri kullanilamaz reserved dür 
+
+-- 127 ile baslayan ip adresi lokal hostumuzdur
+
+-- ping komutunda 127 ile baslayan ip adresini yazdigimizda, agda trafik olusturmadan,
+-- kendi pc mizi test edebilirz 
+
+-- yani burada yazdigimiz komut, layer 3 e kadar iner daha asagi ethernet kartina inip 
+-- agda trafik olusturmaz. laer 3 den tekrar yukari cikar 
+
+--- 127 ayni zamanda bizim trounle shooting icin kullandigimiz adres 
+
+-- eger ping ile 127 calistirdigimizda cevap alamiyorsak, pc mizde tcp ip suite kurulumunda 
+-- bir hata vardir. 
+
+-- ip adresi olarak; 0.0.0.0 girersek, dünya üzerinde herhangi bir pc aga baglanabilir demek
+
+-- 255.255.255.255  broadcast to all hosts on the current network 
+
+
+
+
+
+
+
+### class B: 
+
+-- dünyada 16.384 farkli class b ag olusabilir 
+
+-- ve her bir ag icerisinde 2 üzeri 16 farkli host tanimlanabilir 
+
+-- 128 ila 191 arasinda bir sayi ile baslayan bir ip adresi görürsek ,
+
+-- bu class b demektir 
+
+
+
+
+
+
+#### class C: 
+
+-- daha az hosz un oldugu kücük network ler icin tasarlanmis
+
+-- bir ag da en fazla 2 üzeri 8 host tanimlanabilir 
+
+-- normalde 256 tane olur ama tüm class larda 0000000000 ve 1111111111 reserved 
+-- adresler oldugu icin bu ikisini toplam sayidan cikartiriz 
+
+
+
+
