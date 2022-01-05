@@ -911,4 +911,80 @@ class C: 192.168.0.0 to 192.168.255.255
 -- disarida telefonla internete baglandigimizda ise, operatörümüzün baz istasyonunda 
 -- bir NAT cihazi vardir. bu cihaz üzerinden internete cikis yapariz 
 
--- 
+
+
+
+--- eger bir yerde sadece IP görüyorsak bu ipv4 anlamina gelir (yani 32 bitliktir)
+
+-- ipv6 kullaniyorsak acik acik söylemek zorundayiz
+
+-- layer 2 de mac adresi olarak FF:FF:FF:FF:FF yazarsak bu bir broadcast mesajdir agdaki tüm cihazlara gider  
+
+-- layer 3 de ise X.255.255.255 broadcast olarak kullanilir 
+
+
+
+
+
+### Unicast address:
+
+-- agdaki unique bir cihazi tanimlar 
+
+-- burada bir alici bir de gönderici adresi var. kisinin specifik adresini yazip 
+-- gönderiyoruz bu bir unicast mesaj oluyor 
+
+
+
+
+
+
+
+##### IPv6:
+
+-- avantajlari:
+
+-- More efficient routing (yani encapsulation ve deencapsulation gibi sürecler daha hizli )
+
+-- more efficient packet processing
+
+-- directed data flows (No broadcasts)  (broadcast olmamasi hizi artiriyor)
+-- burada broadcast e benzer anycast diye bir mesaj var 
+
+-- simplified network configuration (public ve privat diye bir ayrim yok )
+-- bu nedenle configuration daha kolay 
+
+-- böyle bir ayrim olmadigi icin artik NAT cihazlara ihtiyacimiz yok .
+-- ipv6 e gectigimizde evimizdeki her cihaza ait bir public ip adresimiz olacak 
+
+-- ipv6 dogrudan ip security dedigimiz bir kavrami destekledigi icin ipv4 e göre daha güvenli 
+
+-- ipv4 genel de 10 luk sistemde gösterilir ve her bir bölüme octet denir 
+
+-- ipv6 ise 16 lik sistemde gösterilir ve her bir bölüme 
+-- hexadectet yada hextet denir 
+
+-- ipv4 de 10 luk sistemdeki ip adresi browser a yazilarak web sitesine baglanabilirz
+
+-- ama ipv6 de ip adresini muhakkak [] icerisine yazmamiz gerekir 
+
+-- ipv6 de ip adresi cok uzun oldugu icin kisaltmanin bir kurali vardir .
+
+-- tekrar eden sifirlari sadece bir kereye mahsus olarak kaldirabilirz 
+
+
+
+--- anycast: broadcast de herkese gönderilir, anycast de ise sadece komsularimiza göndeririz 
+
+--- en yakinimizdaki cihazlara gider 
+
+-- 0:0:0:0:0:0:0:0  bu ipv6 de herhangi bir pc demektir 
+
+-- 0:0:0:0:0:0:0:1  bu ise lokal pc demektir  ipv4 deki 127.0.0.1 ile aynidir 
+
+
+
+
+-- ipv6 de paket header lari daha kücük oldugu icin ve broadcast olmadigi icin 
+-- daha hizlidir 
+
+- 
